@@ -295,7 +295,7 @@ menu li{
 }
 
 .alinear-derecha{
-    justify-content: end;
+    justify-content: flex-end;
 }
 
 
