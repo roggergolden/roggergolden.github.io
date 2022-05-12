@@ -220,11 +220,33 @@ menu li{
 
 }
 
+.formulario2{
+    background-color: #0a4789;
+    width: min( 70rem, 100%);
+    margin: 0 auto;
+    padding: 2rem;
+
+
+}
+
 .formulario fieldset{
     border: none;
 }
 
 .formulario legend{
+    text-align: center;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: var(--secundario);
+}
+
+.formulario2 fieldset{
+    border: none;
+}
+
+.formulario2 legend{
     text-align: center;
     font-size: 1.8rem;
     text-transform: uppercase;
@@ -309,6 +331,7 @@ h1,h2{
     display: flex;
     flex-direction: column;
     align-items: center;
+      
 
 }
 
