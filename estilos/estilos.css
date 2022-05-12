@@ -288,6 +288,17 @@ menu li{
     border-radius: .5rem;
 }
 
+/*Botón de contacto*/
+
+.flex{
+    display: flex;
+}
+
+.alinear-derecha{
+    justify-content: end;
+}
+
+
 h1,h2{
     text-align: center;
     padding-top: 2rem;
