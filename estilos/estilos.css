@@ -266,7 +266,7 @@ menu li{
     border-radius: .5rem;
 }
 
-h2{
+h1,h2{
     text-align: center;
     padding-top: 2rem;
     color: #212121;
