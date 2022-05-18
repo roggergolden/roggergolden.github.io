@@ -34,7 +34,7 @@ body{
 
 .cabecera{
     z-index: 100;    
-    background-color: #ffffff;
+    background-color: #173295;
     height: 110px;
     width: 100%;
     
@@ -100,7 +100,7 @@ menu li{
     line-height: 70px;
     text-align: right;
     text-decoration: none;
-    color: var(--Oscuro);
+    color: var(--blanco);
     font-family: 'Roboto', sans-serif;
     font-size: 20px;
     
@@ -221,7 +221,37 @@ menu li{
 
 }
 
-/*Contacto*/
+/* Página de Contacto*/
+
+.contenedor{
+
+}
+
+.nosotros{
+    display: grid;
+    grid-template-rows: repeat(2, auto);
+}
+
+@media (min-width: 768px) {
+    .nosotros{    
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 2rem;
+    }
+}
+
+
+
+.nosotros_contenido{
+    padding: 2rem;
+
+
+}
+
+.nosotros_imagen{
+    grid-row: 1 / 2;
+    padding: 2rem;
+}
+
 
 
 .formulario{
