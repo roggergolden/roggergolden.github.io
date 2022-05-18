@@ -107,7 +107,7 @@ menu li{
 }
 
 
-/*
+
 .deslizador{
     padding-top: 10rem;
     z-index: 10;
@@ -116,27 +116,19 @@ menu li{
     left: 0;
     width: 100%;
     height: 600px;
-    background-image: url(../img/Diseño\ sin\ título\ \(5\).png);
+    background-image: url(../img/productos/Blue\ label\ portada.jpg);
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
     text-align: center;
     
-} */
+} 
 
-.imgportada{
-    padding-top: 10rem;
-    height: 40rem;
-    width: 100%;    
-    background-image: url(../img/productos/Blue\ label\ portada.jpg);
-    background-attachment: scroll;
-    background-repeat: no-repeat;
-    text-align: center;
-    
-
-   
-    
-    
+.titulo-portada, .parrafo-portada{
+    color: #ffffff;
+    text-align: left;
+    padding-left: 4rem;
+    font-size: 40px;
 }
 
 
@@ -152,7 +144,8 @@ menu li{
     border-radius: .5rem;
     width: 85%;
     text-align: center;
-    border: none;    
+    border: none; 
+     
 }
 
 @media (min-width: 768px){
