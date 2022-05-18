@@ -248,7 +248,7 @@ menu li{
 }
 
 .nosotros_imagen{
-    grid-row: 1 / 2;
+    width: 500px;
     padding: 2rem;
 }
 
