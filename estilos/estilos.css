@@ -249,12 +249,16 @@ menu li{
 }
 
 .nosotros_imagen{
-    grid-row-end: 1 / 2;
-    align-items: center;
-    width: 500px;
-    padding: 2rem;
+    display: block;
+    width: 350px;
+    margin: 8rem auto;
 }
 
+.nosotros__parrafo{
+    padding: 5rem;
+    font-size: 30px;
+    text-align: left;
+}
 
 
 .formulario{
