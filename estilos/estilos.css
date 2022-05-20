@@ -375,7 +375,11 @@ menu li{
 .licores, .snack, .juego{
     padding-top: 2rem;
     width: 18rem;
-    height: 14rem;
+    height: 300px;
+}
+
+.opcion-iconos__parrafo{
+    padding-top: 2rem;
 }
 
 /*Tienda */
