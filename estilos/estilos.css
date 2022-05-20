@@ -30,7 +30,14 @@ html{
 body{
     font-size: 16px;
     font-family: 'Roboto', sans-serif;
-    background-color: #8dbbed;
+    
+}
+
+h1,h2{
+    text-align: center;
+    padding-top: 2rem;
+    color: #212121;
+    font-size: 50px;
 }
 
 .cabecera{
@@ -178,7 +185,7 @@ menu li{
 
 .titulodeopcion{
     text-align: center;
-    padding-top: 2rem;
+    padding-top: 10rem;
 }
 
 
@@ -266,6 +273,13 @@ menu li{
     text-align: left;
 }
 
+
+/*Sección Contacto index*/
+
+.titulo-contacto{
+    padding-top: 10rem;
+    padding-bottom: 2rem;
+}
 
 .formulario{
     background-color: #2A8CF6;
@@ -356,12 +370,7 @@ menu li{
 }
 
 
-h1,h2{
-    text-align: center;
-    padding-top: 2rem;
-    color: #212121;
-    font-size: 50px;
-}
+
 
 .licores, .snack, .juego{
     padding-top: 2rem;
@@ -428,7 +437,7 @@ h1,h2{
     padding-top: 2rem;
     line-height: 2;
     text-align: center;
-    font-size: 200;
+    font-size: 20px;
 }
 
 
