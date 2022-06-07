@@ -40,6 +40,14 @@ h1,h2{
     font-size: 50px;
 }
 
+h3{
+    font-size: 4rem;
+}
+
+h4{
+    font-size: 3rem;
+}
+
 .cabecera{
     z-index: 100;    
     background-color: #173295;
