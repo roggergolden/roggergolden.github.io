@@ -15,7 +15,7 @@
 /*Globales */
 
 html{
-    font-size: auto;
+    font-size: 62.5%;
     box-sizing: border-box;
     scroll-snap-type: y mandatory;
     
@@ -235,9 +235,6 @@ menu li{
 
 /* Página de Contacto*/
 
-.contenedor{
-
-}
 
 .nosotros{
     display: grid;
