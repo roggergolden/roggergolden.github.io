@@ -380,7 +380,8 @@ menu li{
 .licores, .snack, .juego{
     padding-top: 2rem;
     width: 150px;
-    height: 200px;
+    height: 180px;
+    
 }
 
 .opcion-iconos__parrafo{
@@ -590,4 +591,48 @@ footer h3{
 
 .boton--secundario{
     background-color: var(--primario);
+}
+
+
+
+
+
+
+
+/*PROMOCIONES */
+
+.entrada-blog1 a {
+    display: inline-block;
+    background-color: #2196F3;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/** CODIGO AQUI **/
+
+.contenedor2{
+    max-width: 120rem;
+    width: 95%;
+    margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+    .contenedor2{
+        width: 80%;
+    }
+    
+}
+
+@media (min-width: 992px) {
+    .contenedor2{
+        width: 60%;
+    }
+    
+}
+
+img{
+    max-width: 100%;
 }
