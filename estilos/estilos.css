@@ -563,6 +563,12 @@ footer h3{
     
 }
 
+.tituloblog{
+    text-align: center;
+    font-size: 50px;
+    margin: 4rem 0;
+}
+
 /*Boton*/
 
 .boton{
