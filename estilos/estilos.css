@@ -54,9 +54,8 @@ h4{
     background-color: #173295;
     height: 110px;
     width: 100%;
-    max-width: auto;
+    max-width: auto; 
     display: block;
-
 }
 
 .logo{
