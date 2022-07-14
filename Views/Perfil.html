@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Licoreria lo compas</title>
+    <link rel="stylesheet" href="../estilos/estilos.css">
+    <link rel="stylesheet" href="../estilos/normalize.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/simplex/bootstrap.min.css">
+    <script src="https://kit.fontawesome.com/6d368eb5d7.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header class="cabecera">
+        <div>
+            <a href="../index.html">
+                <img class="logo" src="../img/Logotipo moderno - marca de playa 1.png" alt="Logo">
+            </a>
+        </div>
+
+        <div>
+            <menu class="menu">          
+                            
+                <li>
+                    <a  href="../index.html">Inicio</a>
+                </li>
+                
+                <li>
+                    <a href="../Views/tienda.html">Tienda</a>
+                </li>
+
+                <li><a href="../Views/promociones.html">Promociones</a>
+                </li>
+
+                <li>
+                    <a href="../Views/contacto.html">Contactanos</a>
+                </li>
+
+                <li>
+                    <a href="../Views/blog.html">Blog</a>
+                </li>
+
+                <li>
+                    <a href="../Views/Perfil.html">Login</a>
+                </li>
+            
+            </menu>
+        </div>
+    </header>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <form id="task-form">
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="task-title" autofocus placeholder="Titulo">
+                            </div>
+                            <div class="form-group">
+                                <textarea id="task-description" class="form-control" rows="3"
+                                    placeholder="Descripcion"></textarea>
+                            </div>
+                            <button class="btn btn-primary" id="btnGuardar">Guardar</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-md-6" id="task-container">
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.4/firebase-app.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+        import { getFirestore, setDoc, addDoc, collection, getDocs, query, onSnapshot, doc, deleteDoc, getDoc } from "https://www.gstatic.com/firebasejs/9.8.4/firebase-firestore.js";
+
+    // Your web app's Firebase configuration
+     const firebaseConfig = {
+        apiKey: "AIzaSyBZVTQMZ29a1NEbAWd7zKuXT_QOTHEDKC4",
+        authDomain: "carrito-de-compras-cfeed.firebaseapp.com",
+        projectId: "carrito-de-compras-cfeed",
+        storageBucket: "carrito-de-compras-cfeed.appspot.com",
+        messagingSenderId: "816626918200",
+        appId: "1:816626918200:web:2c0cdecd7e60fb4befd7cd"
+         };
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        // Initialize Cloud Firestore and get a reference to the service
+        const db = getFirestore(app);
+
+
+
+        const formulario = document.getElementById("task-form");
+        var editStatus = false;
+        var id = 0;
+
+        formulario.addEventListener("submit", async (e) => {
+            //evita refrescar la pagina
+            e.preventDefault();
+
+            const title = formulario["task-title"].value;
+            const description = formulario["task-description"].value;
+            
+            //guardar registro
+            var docRef;
+            if (!editStatus)
+            {
+                // Add a new document with a generated id.
+                    docRef = await addDoc(collection(db, "tasks"), {
+                    titulo: title,
+                    descripcion: description
+                });               
+            }
+            else //guardar edicion
+            {
+                //console.log(title,description);
+                // Add a new document in collection "cities"
+                const respuesta = await setDoc(doc(db, "tasks",id), {
+                titulo: title,
+                descripcion: description
+                });
+                editStatus=false;
+                formulario['btnGuardar'].innerText = "Guardar";
+            }
+            
+
+            formulario.reset();
+
+            //lista de nuevo la base de datos
+        })
+
+        window.addEventListener("DOMContentLoaded", async () => {
+            const container = document.getElementById("task-container");
+
+            /*const querySnapshot = await getDocs(collection(db, "tasks"));
+
+            querySnapshot.forEach((doc) => {
+                // doc.data() is never undefined for query doc snapshots
+                console.log(doc.id, " => ", doc.data());
+                container.innerHTML =  container.innerHTML +
+                "<div class=card card-body mt-2 border-primary>"+
+                    "<h3>"+doc.data().titulo+"</h3>"+
+                    "<p>"+doc.data().descripcion+"</p>"+
+                    "<div>"+
+                    '<button class="btn btn-primary">Delete</button>'+
+                    "</div>"+
+                    "</div>";
+            });    */
+
+
+            const q = query(collection(db, "tasks"));
+
+            const unsubscribe = onSnapshot(q, (querySnapshot) => {
+                container.innerHTML = "";
+                querySnapshot.forEach((docu) => {
+                    container.innerHTML = container.innerHTML +
+                        "<div class='card card-body mt-2 border-primary'>" +
+                        "<h3 class='h5'>" + docu.data().titulo + "</h3>" +
+                        "<p>" + docu.data().descripcion + "</p>" +
+                        "<div>" +
+                        "<button class='btn btn-primary btn-delete' data-id='"+docu.id+"'>Delete</button>" +
+                        "<button class='btn btn-secondary btn-edit' data-id='"+docu.id+"'>Edit</button>" +
+                        "</div>" +
+                        "</div>";
+                        
+                        const botonesDelete = document.querySelectorAll(".btn-delete");
+                        //console.log(botones);
+                        botonesDelete.forEach( (btn) => { btn.addEventListener("click", async (e) =>
+                                                                                { await deleteDoc(doc(db, "tasks", e.target.dataset.id));}
+                                                                                ) })
+                        
+                        const botonesEdit = document.querySelectorAll(".btn-edit");
+                        botonesEdit.forEach( (btn) => { btn.addEventListener("click", async (e) =>
+                                                                                {    
+                                                                                    editStatus=true;   
+                                                                                    id = e.target.dataset.id;                                                                              
+                                                                                    const docuRef = doc(db, "tasks", e.target.dataset.id);                                                                                    
+                                                                                    const docuSnap = await getDoc(docuRef);
+
+                                                                                    if (docuSnap.exists()) {
+                                                                                        formulario["task-title"].value = docuSnap.data().titulo;
+                                                                                        formulario["task-description"].value =docuSnap.data().descripcion;
+                                                                                    } else {
+                                                                                    // doc.data() will be undefined in this case
+                                                                                    console.log("No such document!");
+                                                                                    }  
+                                                                                    formulario['btnGuardar'].innerText = "Actualizar";
+                                                                                 }
+                                                                                ) })
+
+
+                                                                            
+                        
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
